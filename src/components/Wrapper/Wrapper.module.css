@@ -1,0 +1,21 @@
+@keyframes animationName {
+  from {
+    transform: translateX(-150%);
+  }
+  to {
+    left: 0;
+  }
+}
+.tittle_PhBook {
+  color: blue;
+
+  transition: linear;
+
+  animation-name: animationName;
+  animation-duration: 1s;
+}
+.wrapper_block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
