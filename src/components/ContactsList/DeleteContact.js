@@ -7,8 +7,8 @@ const DeleteContact = ({ deleteContact, id }) => (
     &#x2716;
   </button>
 );
-DeleteContact.propTypes = {
-  deleteContact: PropTypes.func.isRequired,
-  id: PropTypes.string.isRequired,
-};
+// DeleteContact.propTypes = {
+//   deleteContact: PropTypes.func.isRequired,
+//   id: PropTypes.string.isRequired,
+// };
 export default DeleteContact;

@@ -19,3 +19,7 @@
   flex-direction: row;
   align-items: center;
 }
+.app {
+  display: flex;
+  flex-direction: column;
+}
