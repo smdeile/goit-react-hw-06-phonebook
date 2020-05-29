@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import DeleteContact from './DeleteContact';
+import { contacts, filter } from '../../redux/selectors';
 import PropTypes from 'prop-types';
 import styles from './CL.module.css';
+import Item from './Item';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import TransitionStyles from '../TransitionCss/Transition.module.css';
 import { connect } from 'react-redux';
-import { deleteContact } from '../../redux/phonebook/phonebookActions';
+
 class ContactsList extends Component {
-  deleteContact = id => this.props.onDelete(id);
   render() {
     const { filter, contacts } = this.props;
     return (
@@ -23,14 +23,15 @@ class ContactsList extends Component {
               unmountOnExit
               classNames={TransitionStyles}
             >
-              <li className={styles.item}>
+              <Item element={el} />
+              {/* <li className={styles.item}>
                 <p className={styles.name}>{el.name}</p>
                 <p className={styles.number}>{el.number}</p>
                 <DeleteContact
                   deleteContact={() => this.deleteContact(el.id)}
                   id={el.id}
                 />
-              </li>
+              </li> */}
             </CSSTransition>
           ))}
       </TransitionGroup>
@@ -43,10 +44,8 @@ class ContactsList extends Component {
 //   state: PropTypes.object.isRequired,
 // };
 const mapStateToProps = state => ({
-  contacts: state.contacts,
-  filter: state.filter,
+  contacts: contacts(state),
+  filter: filter(state),
 });
-const mapDispatchToProps = dispatch => ({
-  onDelete: id => dispatch(deleteContact(id)),
-});
-export default connect(mapStateToProps, mapDispatchToProps)(ContactsList);
+
+export default connect(mapStateToProps)(ContactsList);

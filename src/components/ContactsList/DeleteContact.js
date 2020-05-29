@@ -11,4 +11,5 @@ const DeleteContact = ({ deleteContact, id }) => (
 //   deleteContact: PropTypes.func.isRequired,
 //   id: PropTypes.string.isRequired,
 // };
+
 export default DeleteContact;

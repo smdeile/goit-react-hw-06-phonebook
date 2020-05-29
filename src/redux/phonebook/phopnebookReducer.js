@@ -20,7 +20,7 @@ export const addContactToContacts = createReducer(initialState.contacts, {
     return [...state, NewContact];
   },
   [deleteContact]: (state, action) => {
-    console.log([...state]);
+    console.log(action);
     const deleteContact = state.filter(
       contact => contact.id !== action.payload,
     );
